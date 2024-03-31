@@ -56,6 +56,10 @@
     transition: 0.2s ease;
 }
 
+.image_display_container .image_list_wrapper .images_list .single_Image_container.active{
+    border: 1px solid rgb(109, 127, 249)
+}
+
 .image_display_container .image_list_wrapper .images_list .single_Image_container:hover{
    transform: scale(0.96);
 }
