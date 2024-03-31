@@ -3,6 +3,8 @@ import Image from "next/image";
 import "./page.css";
 import { useState } from "react";
 import axios from "axios";
+import Navbar from "./components/navbar/navbar";
+import Link from "next/link";
 
 type Motorcycle = {
   _id: string;
@@ -35,6 +37,7 @@ export default function Home() {
   }
   return (
     <>
+    <Navbar/>
       <section className="search_section">
         <div className="search_container">
           <label className='heading_search'>FIND YOUR DREAM BIKE</label>
@@ -48,7 +51,7 @@ export default function Home() {
             {
              searchResult.length != 0  &&  searchResult.map((item :  Motorcycle, i : number)=>{
                 return (
-                  <li key={i}>{item.motorcycle_name}</li>
+                  <li key={i}><Link href={`/motorcycle/${item._id}`}>{item.motorcycle_name}</Link></li>
                 )
               })
             }

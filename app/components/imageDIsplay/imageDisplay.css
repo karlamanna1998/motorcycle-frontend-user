@@ -1,0 +1,115 @@
+.image_display_container{
+    display: flex;
+    /* border: 1px solid red; */
+    gap: 10px;
+    position: absolute;
+    padding-right: 15px;
+    bottom: 10px;
+}
+
+.image_display_container.sticky{
+    position: sticky;
+    top: 100px;
+    padding-right: 0;
+}
+
+.image_display_container .image_list_wrapper .images_list{
+    max-height: 450px; 
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    /* width: 135px; */
+    position: relative;
+}
+
+.image_display_container .image_list_wrapper{
+    position: relative;
+    min-height: 450px; 
+}
+
+.image_display_container .image_list_wrapper  .up_btn {
+   position: absolute;
+   top: 0;
+   width: 90px;
+   background: rgb(243 243 243 / 70%);
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.image_display_container .image_list_wrapper  .down_btn {
+    position: absolute;
+    bottom: 0px;
+    width: 90px;
+    background: rgb(243 243 243 / 70%);
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+ }
+
+.image_display_container .image_list_wrapper .images_list .single_Image_container{
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    transition: 0.2s ease;
+}
+
+.image_display_container .image_list_wrapper .images_list .single_Image_container:hover{
+   transform: scale(0.96);
+}
+
+.image_display_container .image_list_wrapper .images_list .single_Image_container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.image_display_container .main_image{
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.image_display_container .main_image .left_btn{
+    position: absolute;
+    left: 5px;
+    height: 40px;
+    width: 40px;
+    background: rgb(243 243 243 / 70%);
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.image_display_container .main_image .right_btn{
+    position: absolute;
+    right: 5px;
+    height: 40px;
+    width: 40px;
+    background: rgb(243 243 243 / 70%);
+    border-radius: 4px;
+    border: none;   
+    cursor: pointer;
+    /* box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.3); */
+}
+
+.image_display_container .main_image .count_display{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: rgb(243 243 243 / 70%);
+    border-radius: 4px;
+    padding: 7px 10px;
+    color: #767f88;
+}
+
+.image_display_container .main_image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}

@@ -1,0 +1,193 @@
+.body_inner{
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+.main_container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.body_inner .main_container .left_container{
+    width: 48%;
+    padding-right: 15px;
+    position: relative;
+}
+
+
+.body_inner .main_container .right_container{
+    width: 49%;
+}
+
+.body_inner .right_container .container_1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.body_inner .right_container .container_1 .price_container .motorcycle_name{
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 2px;
+    color: #212529;
+}
+
+.body_inner .right_container .container_1 .price_container .motorcycle_price{
+    font-size: 22px;
+    font-weight: 400;
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 3px;
+}
+
+.body_inner .right_container .container_1 .price_container .helper_text{
+    font-size: 14px;
+    font-weight: 400;
+    color: #1530f5;
+    font-weight: 600;
+}
+
+.share_like_container button{
+    color: rgba(0, 0, 0, 0.54);
+    border: 1px solid #d5dadf;
+    background: #fff;
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 3px;
+}
+
+.share_like_container button:hover{
+   background: rgb(243 243 243 / 70%);
+}
+
+.share_like_container button:first-child{
+    margin-right: 7px;
+   
+}
+
+.body_inner .right_container .container_2{
+    margin: 20px 0 10px 0;
+    padding: 12px 10px 12px 20px;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid #d5dadf;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.body_inner .right_container .container_2:hover{
+    background: rgb(243 243 243 / 70%);
+
+}
+
+.body_inner .right_container .container_2 span{
+    display: flex;
+    font-size: 16px;
+    font-weight: 600;
+    color: #212529;
+}
+
+.body_inner .right_container .container_2 span p{
+    display: flex;
+    font-size: 16px;
+    font-weight: 400;
+    color: #212529;
+}
+
+.body_inner .right_container .container_2 svg{
+    color: #d5dadf;
+    font-size: 22px;
+}
+
+.body_inner .right_container .container_3{
+    margin: 10px 0;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid #d5dadf;
+}
+
+.body_inner .right_container .container_3 .head{
+    padding: 12px  20px;
+    border-bottom: 1px solid rgba(213, 218, 223, 0.4);
+}
+
+.body_inner .right_container .container_3 .body{
+    padding: 14px;
+    display: flex;
+}
+
+.body_inner .right_container .container_3 .body.first_body{
+    border-bottom: 1px solid rgba(213, 218, 223, 0.4);
+}
+
+.body_inner .right_container .container_3 .body .key_spec_container{
+    width: calc(100%/3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.body_inner .right_container .container_3 .body .key_spec_container img{
+    width: 25px;
+}
+
+.body_inner .right_container .container_3 .body .key_spec_container .single_spec_container p{
+    font-size: 16px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #767f88;
+    font-weight: 500;
+}
+
+.body_inner .right_container .container_3 .body .key_spec_container .single_spec_container span{
+    font-size: 16px;
+    font-weight: 500;
+    color: #212529;
+    font-weight: 500;
+}
+
+
+.container_4{
+    margin: 10px 0;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid #d5dadf;  
+    transition: height 1s ease;
+}
+
+.body_inner .right_container .container_4 .head{
+    padding: 12px  20px;
+    border-bottom: 1px solid rgba(213, 218, 223, 0.4);
+}
+
+.container_4 ul{
+    list-style: none;
+}
+
+.container_4 ul li{
+    padding: 14px;
+    display: flex;
+    border-bottom: 1px solid rgba(213, 218, 223, 0.4);
+}
+
+.container_4 ul li .single_feature_container{
+    width: 47%;
+}
+
+.see_more_btn{
+    background: none;
+    border: none;
+    color: #1530f5;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+

@@ -1,4 +1,4 @@
-nav {
+.nav {
     position: fixed;
 	transition: backdrop-filter 0.3s ease;
 	display: flex;
@@ -21,11 +21,11 @@ nav {
 	align-items: center;
 }
 
-nav:hover {
+.nav:hover {
 	backdrop-filter: blur(8px);
 }
 
-nav a {
+.nav a {
 	z-index: 2;
 	transition: border 0.2s ease;
 	text-decoration: none;
@@ -38,12 +38,12 @@ nav a {
 	border-radius: 999px;
 }
 
-nav a:hover {
+.nav a:hover {
 	border: 1px solid rgba(255, 255, 255, 0.5);
 	border-radius: 999px;
 	backdrop-filter: blur(8px);
 }
 
-nav .logo {
+.nav .logo {
     height: 40px;
 }
