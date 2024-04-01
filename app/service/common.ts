@@ -55,6 +55,68 @@ const features : Features = {
     "additionalFeatures": "Additional Features"
 }
 
+const specifications = {
+    "powerPerfomance" : [
+        { displacement: "Engine Displacement" },
+        { maxPower: "Maximum Power" },
+        { maxTorque: "Maximum Torque" },
+        { mileageOwnerReported: "Mileage (Owner Reported)" },
+        { ridingRange: "Riding Range" },
+        { topSpeed: "Top Speed" },
+        { ridingModes: "Riding Modes" },
+        { transmission: "Transmission" },
+        { transmissionType: "Transmission Type" },
+        { gearShiftingPattern: "Gear Shifting Pattern" },
+        { cylinders: "Number of Cylinders" },
+        { bore: "Bore" },
+        { stroke: "Stroke" },
+        { valvesPerCylinder: "Valves Per Cylinder" },
+        { compressionRatio: "Compression Ratio" },
+        { ignition: "Ignition" },
+        { sparkPlugs: "Spark Plugs" },
+        { coolingSystem: "Cooling System" },
+        { clutch: "Clutch" },
+        { fuelDeliverySystem: "Fuel Delivery System" },
+        { fuelTankCapacity: "Fuel Tank Capacity" },
+        { reserveFuelCapacity: "Reserve Fuel Capacity" },
+        { emissionStandard: "Emission Standard" },
+        { fuelType: "Fuel Type" }
+    ],
+    "brakeWheelSuspnsion" :  [
+        { frontSuspension: "Front Suspension" },
+        { rearSuspension: "Rear Suspension" },
+        { brakingSystem: "Braking System" },
+        { frontBrakeType: "Front Brake Type" },
+        { frontBrakeSize: "Front Brake Size" },
+        { rearBrakeType: "Rear Brake Type" },
+        { rearBrakeSize: "Rear Brake Size" },
+        { calliperType: "Calliper Type" },
+        { wheelType: "Wheel Type" },
+        { frontWheelSize: "Front Wheel Size" },
+        { rearWheelSize: "Rear Wheel Size" },
+        { frontTyreSize: "Front Tyre Size" },
+        { rearTyreSize: "Rear Tyre Size" },
+        { tyreType: "Tyre Type" },
+        { radialTyres: "Radial Tyres" },
+        { frontTyrePressureRider: "Front Tyre Pressure (Rider)" },
+        { rearTyrePressureRider: "Rear Tyre Pressure (Rider)" },
+        { frontTyrePressureRiderPillion: "Front Tyre Pressure (Rider + Pillion)" },
+        { rearTyrePressureRiderPillion: "Rear Tyre Pressure (Rider + Pillion)" }
+    ],
+    "dimensionChassis" : [
+        { kerbWeight: "Kerb Weight" },
+        { seatHeight: "Seat Height" },
+        { groundClearance: "Ground Clearance" },
+        { overallLength: "Overall Length" },
+        { overallWidth: "Overall Width" },
+        { overallHeight: "Overall Height" },
+        { wheelbase: "Wheelbase" },
+        { chassisType: "Chassis Type" }
+    ]
+    
+}
+
 export  {
-    features
+    features,
+    specifications
 }

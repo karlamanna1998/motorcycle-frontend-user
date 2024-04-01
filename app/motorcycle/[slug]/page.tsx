@@ -10,7 +10,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import "./motorcycle.css";
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation.js';
-import { features } from "../../service/common"
+import { features, specifications } from "../../service/common"
 import axios from 'axios';
 import AddIcon from '@mui/icons-material/Add';
 
@@ -109,12 +109,12 @@ export default function Motorcycle() {
                             </div>
 
                             <div className='container_2'>
-                                <span>Variant : <p> &nbsp;{variant?.variant_name}</p></span>
+                                <span><b>Variant</b> : <p> &nbsp;{variant?.variant_name}</p></span>
                                 <ArrowDropDownCircleIcon />
                             </div>
 
                             <div className='container_3'>
-                                <div className='head'>Key Specs</div>
+                                <div className='head'><b>Key Specs</b></div>
                                 <div className='body first_body'>
                                     <div className='key_spec_container'>
                                         <img src='/brand-image.png' />
@@ -170,7 +170,7 @@ export default function Motorcycle() {
 
 
                             <div className='container_4'>
-                                <div className='head'>Features</div>
+                                <div className='head'><b>Features</b></div>
                                 <ul>
                                     {motorcycleData?.variant.features && Object.keys(motorcycleData?.variant.features).map((feature, index) => (
                                         (showAllFeatures || index < 5) && (
@@ -189,6 +189,63 @@ export default function Motorcycle() {
                                         </li>
                                     )}
                                 </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className='container_5'>
+                        <div className='container_5_head'><b>Specifications</b></div>
+                        <div className="container_5_body">
+                            <div className='container_5_body_inner'>
+                                <div className='head'>Power & Performance  <img src='/right-arrow.png'/></div>
+                                <ul>
+                                    {specifications.powerPerfomance.map((specification, index) => {
+                                        const key = Object.keys(specification)[0] as keyof typeof specification; // Type assertion
+                                        const value = Object.values(specification)[0] as keyof typeof specification;
+                                        return (
+                                            <li key={index}>
+                                                <span>{value} :</span> {motorcycleData?.variant?.specifications[key] ? motorcycleData?.variant?.specifications[key] : 'N/A'}
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+
+                            </div>
+                        </div>
+
+                        <div className="container_5_body">
+                            <div className='container_5_body_inner'>
+                                <div className='head'>Brakes, Wheels & Suspension <img src='/right-arrow.png'/></div>
+                                <ul>
+                                    {specifications.brakeWheelSuspnsion.map((specification, index) => {
+                                        const key = Object.keys(specification)[0] as keyof typeof specification; // Type assertion
+                                        const value = Object.values(specification)[0] as keyof typeof specification;
+                                        return (
+                                            <li key={index}>
+                                                <span>{value} :</span> {motorcycleData?.variant?.specifications[key] ? motorcycleData?.variant?.specifications[key] : 'N/A'}
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+
+                            </div>
+                        </div>
+
+                        <div className="container_5_body">
+                            <div className='container_5_body_inner'>
+                                <div className='head'>Dimensions & Chassis  <img src='/right-arrow.png'/></div>
+                                <ul>
+                                    {specifications.dimensionChassis.map((specification, index) => {
+                                        const key = Object.keys(specification)[0] as keyof typeof specification; // Type assertion
+                                        const value = Object.values(specification)[0] as keyof typeof specification;
+                                        return (
+                                            <li key={index}>
+                                                <span>{value} :</span> {motorcycleData?.variant?.specifications[key] ? motorcycleData?.variant?.specifications[key] : 'N/A'}
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+
                             </div>
                         </div>
                     </div>
