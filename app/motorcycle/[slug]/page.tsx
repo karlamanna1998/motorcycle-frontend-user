@@ -34,6 +34,7 @@ export default function Motorcycle() {
     const [variantList, setVariantList] = useState([])
     const [showAllFeatures, setShowAllFeatures] = useState(false);
     const [isSticky, setIsSticky] = useState<boolean>(false);
+    const [variantDropdown , setvariantDropdown] = useState(false)
 
 
     const getMotorcycleData = async () => {
@@ -58,6 +59,12 @@ export default function Motorcycle() {
         }
     }
 
+    const variantHandler = (variant : variant)=>{
+        setvariantDropdown(false)
+        setVariant(variant)
+        getMotorcycleData()
+    }
+
 
     useEffect(() => {
         getVariants()
@@ -66,30 +73,37 @@ export default function Motorcycle() {
 
     useEffect(() => {
         const handleScroll = () => {
-            const leftDiv = document.querySelector('.image_display_container') as HTMLElement;
-            const rightDiv = document.querySelector('.container_4') as HTMLElement;
-            const leftDivRect = leftDiv.getBoundingClientRect();
-            const rightDivRect = rightDiv.getBoundingClientRect();
-
-            if (rightDivRect.bottom <= leftDivRect.height) {
-                setIsSticky(false); // Remove sticky behavior
-            } else {
-                setIsSticky(true); // Add sticky behavior
+            const screenWidth = window.innerWidth;
+            // Check if screen width is greater than 1024px
+            if (screenWidth > 1024) {
+                const leftDiv = document.querySelector('.image_display_container') as HTMLElement;
+                const rightDiv = document.querySelector('.container_4') as HTMLElement;
+                const leftDivRect = leftDiv.getBoundingClientRect();
+                const rightDivRect = rightDiv.getBoundingClientRect();
+    
+                if (rightDivRect.bottom <= leftDivRect.height) {
+                    setIsSticky(false); // Remove sticky behavior
+                } else {
+                    setIsSticky(true); // Add sticky behavior
+                }
             }
         };
-
+    
         window.addEventListener('scroll', handleScroll);
-
+    
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+    
 
 
     return (
         <>
             <NavbarTwo />
+          
             <div className='body_outer'>
+            {variantDropdown && <div onClick={()=>setvariantDropdown(false)} className='variant_droodwon_backdrop'></div>}
                 <div className='body_inner'>
                     <div className='main_container'>
                         <div className='left_container'>
@@ -109,9 +123,25 @@ export default function Motorcycle() {
                             </div>
 
                             <div className='container_2'>
+                                <div className='variant_box' onClick={()=>setvariantDropdown(!variantDropdown)}>
                                 <span><b>Variant</b> : <p> &nbsp;{variant?.variant_name}</p></span>
                                 <ArrowDropDownCircleIcon />
+                                </div>
+                              
+                                <div className=  {variantDropdown ? 'variant_dropdown slide' : 'variant_dropdown'}>
+                                <ul>
+                                    {
+                                       variantList.length > 0 &&  variantList.map((variant : any) =>{
+                                             return( <li onClick={()=>variantHandler(variant)}>{variant?.variant_name}</li>)
+                                       })
+                                    }
+                                    
+                                </ul>
+                               
+                                </div>
                             </div>
+
+                           
 
                             <div className='container_3'>
                                 <div className='head'><b>Key Specs</b></div>

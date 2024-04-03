@@ -1,38 +1,42 @@
-.body_inner{
+.body_inner {
     max-width: 1320px;
     margin: 0 auto;
     padding: 30px 20px;
 }
-.main_container{
+
+.main_container {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.body_inner .main_container .left_container{
-    width: 48%;
+.body_inner .main_container .left_container {
+    width: 50%;
     padding-right: 15px;
     position: relative;
 }
 
 
-.body_inner .main_container .right_container{
+.body_inner .main_container .right_container {
     width: 49%;
 }
 
-.body_inner .right_container .container_1{
+.body_inner .right_container .container_1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.body_inner .right_container .container_1 .price_container .motorcycle_name{
+
+
+.body_inner .right_container .container_1 .price_container .motorcycle_name {
     font-size: 19px;
     font-weight: 500;
     margin-bottom: 2px;
     color: #212529;
 }
 
-.body_inner .right_container .container_1 .price_container .motorcycle_price{
+.body_inner .right_container .container_1 .price_container .motorcycle_price {
     font-size: 22px;
     font-weight: 400;
     font-weight: 600;
@@ -40,14 +44,14 @@
     margin-bottom: 3px;
 }
 
-.body_inner .right_container .container_1 .price_container .helper_text{
+.body_inner .right_container .container_1 .price_container .helper_text {
     font-size: 14px;
     font-weight: 400;
     color: #1530f5;
     font-weight: 600;
 }
 
-.share_like_container button{
+.share_like_container button {
     color: rgba(0, 0, 0, 0.54);
     border: 1px solid #d5dadf;
     background: #fff;
@@ -60,84 +64,146 @@
     padding-top: 3px;
 }
 
-.share_like_container button:hover{
-   background: rgb(243 243 243 / 70%);
+.share_like_container button:hover {
+    background: rgb(243 243 243 / 70%);
 }
 
-.share_like_container button:first-child{
+.share_like_container button:first-child {
     margin-right: 7px;
-   
+
 }
 
-.body_inner .right_container .container_2{
+.body_inner .right_container .container_2 {
     margin: 20px 0 10px 0;
     padding: 12px 10px 12px 20px;
     border-radius: 10px;
     background: #fff;
     border: 1px solid #d5dadf;
-    display: flex;
     align-items: center;
-    justify-content: space-between;
     cursor: pointer;
+    position: relative;
 }
 
-.body_inner .right_container .container_2:hover{
+.variant_box{
+    display: flex;
+    justify-content: space-between;
+}
+
+.body_inner .right_container .container_2 .variant_dropdown{
+    position: absolute;
+    width: 101%;
+    left: -1px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    visibility: hidden;
+    top: calc(100% + 10px);
+    background: #1530f5b8;
+    border: 2px solid #fff;
+    z-index: 3;
+}
+
+.body_inner .right_container .container_2 .variant_dropdown.slide{
+    visibility: visible;
+    animation: slide 0.2s  linear;
+}
+
+@keyframes slide {
+    0%{
+            top: calc(100% + 60px);
+    }
+
+    100%{
+            top: calc(100% + 10px);
+    }
+}
+
+.body_inner .right_container .container_2 .variant_dropdown ul{
+    list-style: none;
+    border-radius: 10px;
+}
+
+.body_inner .right_container .container_2 .variant_dropdown ul li{
+    list-style: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+
+    padding: 14px;
+    border-bottom: 1px solid rgba(213, 218, 223, 0.4);
+}
+
+.body_inner .right_container .container_2 .variant_dropdown ul li:last-child{
+    border-bottom: none
+}
+
+.variant_droodwon_backdrop{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: none;
+    z-index: 2;
+}
+
+.body_inner .right_container .container_2:hover {
     background: rgb(243 243 243 / 70%);
 
 }
 
-.body_inner .right_container .container_2 span{
+.body_inner .right_container .container_2 span {
     display: flex;
     font-size: 16px;
     font-weight: 600;
     color: #212529;
 }
 
-.body_inner .right_container .container_2 span p{
+.body_inner .right_container .container_2 span p {
     display: flex;
     font-size: 16px;
     font-weight: 400;
     color: #212529;
 }
 
-.body_inner .right_container .container_2 svg{
+.body_inner .right_container .container_2 svg {
     color: #d5dadf;
     font-size: 22px;
 }
 
-.body_inner .right_container .container_3{
+.body_inner .right_container .container_3 {
     margin: 10px 0;
     border-radius: 10px;
     background: #fff;
     border: 1px solid #d5dadf;
 }
 
-.body_inner .right_container .container_3 .head{
-    padding: 12px  20px;
+.body_inner .right_container .container_3 .head {
+    padding: 12px 20px;
     border-bottom: 1px solid rgba(213, 218, 223, 0.4);
+    background: rgb(242, 246, 255);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
-.body_inner .right_container .container_3 .body{
+.body_inner .right_container .container_3 .body {
     padding: 14px;
     display: flex;
 }
 
-.body_inner .right_container .container_3 .body.first_body{
+.body_inner .right_container .container_3 .body.first_body {
     border-bottom: 1px solid rgba(213, 218, 223, 0.4);
 }
 
-.body_inner .right_container .container_3 .body .key_spec_container{
+.body_inner .right_container .container_3 .body .key_spec_container {
     width: calc(100%/3);
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.body_inner .right_container .container_3 .body .key_spec_container img{
+.body_inner .right_container .container_3 .body .key_spec_container img {
     width: 25px;
 }
 
-.body_inner .right_container .container_3 .body .key_spec_container .single_spec_container p{
+.body_inner .right_container .container_3 .body .key_spec_container .single_spec_container p {
     font-size: 16px;
     font-weight: 400;
     font-size: 14px;
@@ -145,7 +211,7 @@
     font-weight: 500;
 }
 
-.body_inner .right_container .container_3 .body .key_spec_container .single_spec_container span{
+.body_inner .right_container .container_3 .body .key_spec_container .single_spec_container span {
     font-size: 16px;
     font-weight: 500;
     color: #212529;
@@ -153,35 +219,38 @@
 }
 
 
-.container_4{
+.container_4 {
     margin: 10px 0;
     border-radius: 10px;
     background: #fff;
-    border: 1px solid #d5dadf;  
+    border: 1px solid #d5dadf;
     transition: height 1s ease;
 }
 
 .body_inner .right_container .container_4 .head,
-.body_inner  .container_5 .container_5_head{
-    padding: 12px  20px;
+.body_inner .container_5 .container_5_head {
+    background: rgb(242, 246, 255);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 12px 20px;
     border-bottom: 1px solid rgba(213, 218, 223, 0.4);
 }
 
-.container_4 ul{
+.container_4 ul {
     list-style: none;
 }
 
-.container_4 ul li{
+.container_4 ul li {
     padding: 14px;
     display: flex;
     border-bottom: 1px solid rgba(213, 218, 223, 0.4);
 }
 
-.container_4 ul li .single_feature_container{
+.container_4 ul li .single_feature_container {
     width: 47%;
 }
 
-.see_more_btn{
+.see_more_btn {
     background: none;
     border: none;
     color: #1530f5;
@@ -193,15 +262,16 @@
 }
 
 
-.container_5{
+.container_5 {
     margin: 10px 0;
     border-radius: 10px;
     background: #fff;
-    border: 1px solid #d5dadf;  
+    border: 1px solid #d5dadf;
 }
 
-.container_5_body_inner .head{
-    padding: 12px  20px;
+.container_5_body_inner .head {
+    background: rgb(242, 246, 255);
+    padding: 12px 20px;
     border-bottom: 1px solid rgba(213, 218, 223, 0.4);
     border-top: 1px solid rgba(213, 218, 223, 0.4);
     color: #1530f5;
@@ -210,24 +280,39 @@
     align-items: center;
 }
 
-.container_5_body_inner .head img{
+.container_5_body_inner .head img {
     width: 25px;
     margin-top: 1px;
 }
 
-.container_5_body_inner ul{
-  list-style: none;
-  display: flex;
-  width: 100%;
-  flex-wrap: wrap;
+.container_5_body_inner ul {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
-.container_5_body_inner ul li{
+.container_5_body_inner ul li {
     width: calc(100% /3);
     padding: 10px 14px;
-  }
+}
 
-  .container_5_body_inner ul li span{
+.container_5_body_inner ul li span {
     color: #757575;
-  }
+}
 
+
+
+@media (max-width: 1024px) {
+    .body_inner .main_container .left_container {
+        width: 100%;
+        padding-right: 0px;
+        position: relative;
+    }
+
+
+    .body_inner .main_container .right_container {
+        width: 100%;
+    }
+
+}
