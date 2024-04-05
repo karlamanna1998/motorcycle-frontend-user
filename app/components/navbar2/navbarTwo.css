@@ -1,6 +1,6 @@
 .nav2{
     background: #ffff;
-    height: 65px;
+    height: 70px;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 10px;
     position: sticky;
     top: 0;
@@ -14,4 +14,70 @@
     display: flex;
     align-items: center;
     height: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
+
+.nav2 .nav2_inner .Search_container{
+    display: flex;
+}
+
+.nav2 .nav2_inner .Search_container input{
+   height: 48px;
+   border: 1px solid rgb(213 218 223);
+   border-radius: 5px;
+   width: 250px;
+   padding-left: 15px;
+}
+
+.nav2 .nav2_inner .Search_container input:focus{
+    outline: none;
+ }
+
+ .nav2 .nav2_inner .Search_container .login_btn_container{
+       width: 63px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       height: 48px;
+       flex-direction: column;
+       border: 1px solid red;
+       border: 1px solid rgb(213 218 223);
+       border-radius: 5px;
+       margin-right: 5px;
+       cursor: pointer;
+       gap: 2px;
+ } 
+
+ .nav2 .nav2_inner .Search_container .login_btn_container img{
+   width: 20px;
+}
+
+.nav2 .nav2_inner .Search_container .login_btn_container:hover{
+    background: rgb(243 243 243 / 70%);
+}
+
+.nav2 .nav2_inner .Search_container .login_btn_container span{
+   font-size: 10px;
+   text-transform: uppercase;
+ }
+
+
+ @media (max-width: 768px) {
+
+    .nav2 .logo{
+       width: 130px;
+    }
+    .nav2{
+        height: auto;
+    }
+
+    .nav2 .nav2_inner{
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .nav2 .nav2_inner .Search_container input{
+       width: auto;
+     }
+ }
