@@ -26,7 +26,7 @@ export default function Home() {
 
     let timer = setTimeout(async () => {
       try {
-       let motorcycledata =  await axios.get(`http://localhost:5000/api/v1/user/motorcycle/search-list?search=${searchTerm}`)
+       let motorcycledata =  await axios.get(`${process.env.NEXT_PUBLIC_BASEURL}api/v1/user/motorcycle/search-list?search=${searchTerm}`)
        setSearchResult(motorcycledata.data.data)
       } catch (err) {
         console.error(err);

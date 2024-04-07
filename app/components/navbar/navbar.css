@@ -47,3 +47,10 @@
 .nav .logo {
     height: 40px;
 }
+
+
+@media (max-width: 576px) {
+	.link_container{
+		display: none;
+	}
+}

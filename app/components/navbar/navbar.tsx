@@ -4,7 +4,7 @@ export default function Navbar() {
     return (
         <nav className="nav">
                 <img className='logo' src="./logo2.png"/>
-            <div>
+            <div className="link_container">
                 <a href="#">Logo</a>
                 <a href="#">Products</a>
                 <a href="#">About</a>

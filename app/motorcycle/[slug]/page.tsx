@@ -33,24 +33,28 @@ export default function Motorcycle() {
     const params = useParams()
     const [variantList, setVariantList] = useState([])
     const [showAllFeatures, setShowAllFeatures] = useState(false);
-    const [isSticky, setIsSticky] = useState<boolean>(false);
-    const [variantDropdown , setvariantDropdown] = useState(false)
+    const [isSticky, setIsSticky] = useState<boolean>(true);
+    const [variantDropdown, setvariantDropdown] = useState(false)
+    const [initialRender, setInitialRender] = useState(false)
 
 
     const getMotorcycleData = async () => {
         try {
-            let data = await axios.get(`http://localhost:5000/api/v1/user/motorcycle/getById?motorcycleID=${params.slug}&variantId=${variant?._id ? variant?._id : ""}`)
+            let data = await axios.get(`${process.env.NEXT_PUBLIC_BASEURL}api/v1/user/motorcycle/getById?motorcycleID=${params.slug}&variantId=${variant?._id ? variant?._id : ""}`)
             setMotorcycleData(data.data.data)
             setimages(data.data.data.images)
             console.log(data.data.data);
+            setInitialRender(true)
         } catch (err) {
             console.log(err);
         }
     }
 
     const getVariants = async () => {
+        console.log(process.env);
+
         try {
-            let data = await axios.get(`http://localhost:5000/api/v1/user/variant/variant-list/${params.slug}`)
+            let data = await axios.get(`${process.env.NEXT_PUBLIC_BASEURL}api/v1/user/variant/variant-list/${params.slug}`)
             setVariantList(data.data.data)
             setVariant(data.data.data[0])
             getMotorcycleData()
@@ -59,7 +63,7 @@ export default function Motorcycle() {
         }
     }
 
-    const variantHandler = (variant : variant)=>{
+    const variantHandler = (variant: variant) => {
         setvariantDropdown(false)
         setVariant(variant)
         getMotorcycleData()
@@ -80,7 +84,7 @@ export default function Motorcycle() {
                 const rightDiv = document.querySelector('.container_4') as HTMLElement;
                 const leftDivRect = leftDiv.getBoundingClientRect();
                 const rightDivRect = rightDiv.getBoundingClientRect();
-    
+
                 if (rightDivRect.bottom <= leftDivRect.height) {
                     setIsSticky(false); // Remove sticky behavior
                 } else {
@@ -88,29 +92,31 @@ export default function Motorcycle() {
                 }
             }
         };
-    
+
+
+
         window.addEventListener('scroll', handleScroll);
-    
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-    
+
 
 
     return (
         <>
             <NavbarTwo />
-          
+
             <div className='body_outer'>
-            {variantDropdown && <div onClick={()=>setvariantDropdown(false)} className='variant_droodwon_backdrop'></div>}
+                {variantDropdown && <div onClick={() => setvariantDropdown(false)} className='variant_droodwon_backdrop'></div>}
                 <div className='body_inner'>
                     <div className='main_container'>
                         <div className='left_container'>
                             <ImageDisplay images={images} sticky={isSticky} />
                         </div>
                         <div className='right_container'>
-                            <div className='container_1'>
+                            {initialRender ? <div className='container_1'>
                                 <div className='price_container'>
                                     <h2 className='motorcycle_name'>{motorcycleData?.motorcycle_name}</h2>
                                     <h3 className='motorcycle_price'><span>Price :</span> ₹ {motorcycleData?.variant?.price}</h3>
@@ -120,30 +126,34 @@ export default function Motorcycle() {
                                     <button><FavoriteBorderIcon /></button>
                                     <button><ShareIcon /></button>
                                 </div>
-                            </div>
+                            </div> : <div className="load-wraper price_display">
+                                <div className="activity"></div>
+                            </div>}
 
-                            <div className='container_2'>
-                                <div className='variant_box' onClick={()=>setvariantDropdown(!variantDropdown)}>
-                                <span><b>Variant</b> : <p> &nbsp;{variant?.variant_name}</p></span>
-                                <ArrowDropDownCircleIcon />
+                           {initialRender ?  <div className='container_2'>
+                                <div className='variant_box' onClick={() => setvariantDropdown(!variantDropdown)}>
+                                    <span><b>Variant</b> : <p> &nbsp;{variant?.variant_name}</p></span>
+                                    <ArrowDropDownCircleIcon />
                                 </div>
-                              
-                                <div className=  {variantDropdown ? 'variant_dropdown slide' : 'variant_dropdown'}>
-                                <ul>
-                                    {
-                                       variantList.length > 0 &&  variantList.map((variant : any) =>{
-                                             return( <li onClick={()=>variantHandler(variant)}>{variant?.variant_name}</li>)
-                                       })
-                                    }
-                                    
-                                </ul>
-                               
+
+                                <div className={variantDropdown ? 'variant_dropdown slide' : 'variant_dropdown'}>
+                                    <ul>
+                                        {
+                                            variantList.length > 0 && variantList.map((variant: any) => {
+                                                return (<li onClick={() => variantHandler(variant)}>{variant?.variant_name}</li>)
+                                            })
+                                        }
+
+                                    </ul>
+
                                 </div>
-                            </div>
+                            </div> : <div className="load-wraper variant_display">
+                                <div className="activity"></div>
+                            </div>}
 
-                           
 
-                            <div className='container_3'>
+
+                           {initialRender ?  <div className='container_3'>
                                 <div className='head'><b>Key Specs</b></div>
                                 <div className='body first_body'>
                                     <div className='key_spec_container'>
@@ -196,17 +206,19 @@ export default function Motorcycle() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> : <div className="load-wraper key_spec_display">
+                                <div className="activity"></div>
+                            </div>}
 
 
-                            <div className='container_4'>
+                           {initialRender ? <div className='container_4'>
                                 <div className='head'><b>Features</b></div>
                                 <ul>
                                     {motorcycleData?.variant.features && Object.keys(motorcycleData?.variant.features).map((feature, index) => (
                                         (showAllFeatures || index < 5) && (
                                             <li key={index}>
-                                                <div className='single_feature_container'>{features[feature]}</div>
-                                                <div className='single_feature_container'>{motorcycleData?.variant.features[feature] ? motorcycleData?.variant.features[feature] : '-'}</div>
+                                                <div className='single_feature_container feature_name'>{features[feature]}</div>
+                                                <div className='single_feature_container'><img src='/right_arrow_black.png' /> <span>{motorcycleData?.variant.features[feature] ? motorcycleData?.variant.features[feature] : '- -'}</span></div>
                                             </li>
                                         )
                                     ))}
@@ -219,7 +231,9 @@ export default function Motorcycle() {
                                         </li>
                                     )}
                                 </ul>
-                            </div>
+                            </div>  : <div className="load-wraper feature_display">
+                                <div className="activity"></div>
+                            </div>}
                         </div>
                     </div>
 
@@ -227,14 +241,14 @@ export default function Motorcycle() {
                         <div className='container_5_head'><b>Specifications</b></div>
                         <div className="container_5_body">
                             <div className='container_5_body_inner'>
-                                <div className='head'>Power & Performance  <img src='/right-arrow.png'/></div>
+                                <div className='head'>Power & Performance  <img src='/right-arrow.png' /></div>
                                 <ul>
                                     {specifications.powerPerfomance.map((specification, index) => {
                                         const key = Object.keys(specification)[0] as keyof typeof specification; // Type assertion
                                         const value = Object.values(specification)[0] as keyof typeof specification;
                                         return (
                                             <li key={index}>
-                                                <span>{value} :</span> {motorcycleData?.variant?.specifications[key] ? motorcycleData?.variant?.specifications[key] : 'N/A'}
+                                                <span>{value} <img src='/right_arrow_black.png' /> </span> {motorcycleData?.variant?.specifications[key] ? motorcycleData?.variant?.specifications[key] : 'N/A'}
                                             </li>
                                         );
                                     })}
@@ -245,14 +259,14 @@ export default function Motorcycle() {
 
                         <div className="container_5_body">
                             <div className='container_5_body_inner'>
-                                <div className='head'>Brakes, Wheels & Suspension <img src='/right-arrow.png'/></div>
+                                <div className='head'>Brakes, Wheels & Suspension <img src='/right-arrow.png' /></div>
                                 <ul>
                                     {specifications.brakeWheelSuspnsion.map((specification, index) => {
                                         const key = Object.keys(specification)[0] as keyof typeof specification; // Type assertion
                                         const value = Object.values(specification)[0] as keyof typeof specification;
                                         return (
                                             <li key={index}>
-                                                <span>{value} :</span> {motorcycleData?.variant?.specifications[key] ? motorcycleData?.variant?.specifications[key] : 'N/A'}
+                                                <span>{value} <img src='/right_arrow_black.png' /></span> {motorcycleData?.variant?.specifications[key] ? motorcycleData?.variant?.specifications[key] : 'N/A'}
                                             </li>
                                         );
                                     })}
@@ -263,14 +277,14 @@ export default function Motorcycle() {
 
                         <div className="container_5_body">
                             <div className='container_5_body_inner'>
-                                <div className='head'>Dimensions & Chassis  <img src='/right-arrow.png'/></div>
+                                <div className='head'>Dimensions & Chassis  <img src='/right-arrow.png' /></div>
                                 <ul>
                                     {specifications.dimensionChassis.map((specification, index) => {
                                         const key = Object.keys(specification)[0] as keyof typeof specification; // Type assertion
                                         const value = Object.values(specification)[0] as keyof typeof specification;
                                         return (
                                             <li key={index}>
-                                                <span>{value} :</span> {motorcycleData?.variant?.specifications[key] ? motorcycleData?.variant?.specifications[key] : 'N/A'}
+                                                <span>{value}  <img src='/right_arrow_black.png' /></span> {motorcycleData?.variant?.specifications[key] ? motorcycleData?.variant?.specifications[key] : 'N/A'}
                                             </li>
                                         );
                                     })}
