@@ -1,6 +1,11 @@
-import "./navbar.css"
+import { useState } from "react";
+import "./navbar.css";
+import axios from "axios";
+
 
 export default function Navbar() {
+
+  
     return (
         <nav className="nav">
                 <img className='logo' src="./logo2.png"/>

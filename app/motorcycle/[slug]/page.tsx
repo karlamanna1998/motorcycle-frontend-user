@@ -1,5 +1,5 @@
 "use client"
-import NavbarTwo from '../../components/navbar2/navbarTwo.jsx';
+import NavbarTwo from '../../components/navbar2/navbarTwo';
 import ImageDisplay from "../../components/imageDIsplay/imageDisplay"
 import FmdBadIcon from '@mui/icons-material/FmdBad';
 import ShareIcon from '@mui/icons-material/Share';
@@ -38,9 +38,9 @@ export default function Motorcycle() {
     const [initialRender, setInitialRender] = useState(false)
 
 
-    const getMotorcycleData = async () => {
+    const getMotorcycleData = async (variantData : variant) => {
         try {
-            let data = await axios.get(`${process.env.NEXT_PUBLIC_BASEURL}api/v1/user/motorcycle/getById?motorcycleID=${params.slug}&variantId=${variant?._id ? variant?._id : ""}`)
+            let data = await axios.get(`${process.env.NEXT_PUBLIC_BASEURL}api/v1/user/motorcycle/getById?motorcycleID=${params.slug}&variantId=${variantData?._id}`)
             setMotorcycleData(data.data.data)
             setimages(data.data.data.images)
             console.log(data.data.data);
@@ -57,7 +57,7 @@ export default function Motorcycle() {
             let data = await axios.get(`${process.env.NEXT_PUBLIC_BASEURL}api/v1/user/variant/variant-list/${params.slug}`)
             setVariantList(data.data.data)
             setVariant(data.data.data[0])
-            getMotorcycleData()
+            getMotorcycleData(data.data.data[0])
         } catch (err) {
             console.log(err);
         }
@@ -66,7 +66,7 @@ export default function Motorcycle() {
     const variantHandler = (variant: variant) => {
         setvariantDropdown(false)
         setVariant(variant)
-        getMotorcycleData()
+        getMotorcycleData(variant)
     }
 
 

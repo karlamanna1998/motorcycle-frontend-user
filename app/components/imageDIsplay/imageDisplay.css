@@ -83,7 +83,7 @@
 }
 
 .image_display_container .image_list_wrapper .images_list .single_Image_container .single_image.active{
-    border: 2px solid rgb(109, 127, 249)
+    border: 1px solid rgb(109, 127, 249)
 }
 
 .image_display_container .main_image{
@@ -170,6 +170,12 @@
         gap: 10px;
 
 
+    }
+    .image_display_container .image_list_wrapper  .up_btn{
+        height: 80px;
+    }
+    .image_display_container .image_list_wrapper  .down_btn{
+        height: 80px;
     }
 
     .image_display_container .image_list_wrapper .images_list .single_Image_container img{

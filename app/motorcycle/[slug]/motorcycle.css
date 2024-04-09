@@ -361,6 +361,11 @@
 
 @media (max-width : 576px) {
 
+    .body_inner {
+        padding: 25px 15px;
+    }
+    
+
     .body_inner .right_container .container_3 .body .key_spec_container{
         gap: 5px    ;
     }
