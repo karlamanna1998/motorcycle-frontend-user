@@ -42,7 +42,7 @@
 }
 
 .body_inner .right_container .container_1 .price_container .motorcycle_price {
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: 400;
     font-weight: 600;
     color: #212529;
@@ -50,9 +50,9 @@
 }
 
 .body_inner .right_container .container_1 .price_container .helper_text {
-    font-size: 0.7em;
+    font-size: 0.6em;
     font-weight: 400;
-    color: #1530f5;
+    color: #4e54c8;
     font-weight: 600;
     
 }
@@ -80,6 +80,8 @@
 }
 
 .body_inner .right_container .container_2 {
+    box-shadow: 0px 0px 7px 0px #00619733;
+
     font-size: 20px;
     margin: 10px 0 10px 0;
     padding: 12px 10px 12px 20px;
@@ -89,6 +91,7 @@
     align-items: center;
     cursor: pointer;
     position: relative;
+    
 }
 
 .body_inner .right_container .container_2  .variant_box{
@@ -183,16 +186,24 @@
     border-radius: 10px;
     background: #fff;
     border: 1px solid #d5dadf;
+    box-shadow: 0px 0px 7px 0px #00619733;
+
 }
 
 .body_inner .right_container .container_3 .head {
+    font-family: "Teko", sans-serif;
+     letter-spacing: 0.5px;
     padding: 12px 20px;
+    color: #fff;
     border-bottom: 1px solid rgba(213, 218, 223, 0.4);
     background: rgb(242, 246, 255);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    font-size: 0.7em;
-}
+    font-size: 0.8em;
+    background: #4e54c8;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #8f94fb, #4e54c8);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #8f94fb, #4e54c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
 
 .body_inner .right_container .container_3 .body {
     padding: 14px;
@@ -230,6 +241,8 @@
 
 
 .body_inner .right_container .container_4 {
+    box-shadow: 0px 0px 7px 0px #00619733;
+
     margin: 10px 0;
     border-radius: 10px;
     font-size: 20px;
@@ -241,12 +254,18 @@
 
 .body_inner .right_container .container_4 .head,
 .body_inner .container_5 .container_5_head {
+    font-family: "Teko", sans-serif;
+    letter-spacing: 0.5px;
+    color: #fff;
     background: rgb(242, 246, 255);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     padding: 12px 20px;
-    font-size: 0.7em;
+    font-size: 0.8em;
     border-bottom: 1px solid rgba(213, 218, 223, 0.4);
+    background: #4e54c8;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #8f94fb, #4e54c8);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #8f94fb, #4e54c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .container_4 ul {
@@ -282,7 +301,7 @@
 .see_more_btn {
     background: none;
     border: none;
-    color: #1530f5;
+    color: #4e54c8;
     font-size: 1em;
     font-weight: 600;
     cursor: pointer;
@@ -297,6 +316,8 @@
     background: #fff;
     border: 1px solid #d5dadf;
     font-size: 20px;
+    box-shadow: 0px 0px 7px 0px #00619733;
+
 }
 
  .container_5_body_inner .head {
@@ -304,7 +325,7 @@
     padding: 12px 20px;
     border-bottom: 1px solid rgba(213, 218, 223, 0.4);
     border-top: 1px solid rgba(213, 218, 223, 0.4);
-    color: #1530f5;
+    color: #4e54c8;
     font-weight: 600;
     display: flex;
     align-items: center;
