@@ -1,5 +1,8 @@
 .nav {
     position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
 	transition: backdrop-filter 0.3s ease;
 	display: flex;
 	background-color: rgba(200, 210, 220, 0.2);
@@ -9,15 +12,9 @@
 	backdrop-filter: blur(
 		2px
 	);
-     /* Disable this to have a Macos-like top bar
-	border-radius: 0px 0px 10px 10px;
-	border-top: none;
-	margin-left: 50px;
-	margin-right: 50px;*/
 	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 	box-shadow: 1px 10px 10px rgba(0, 20, 50, 0.1);
 	min-height: 65px;
-	width: 100vw;
 	align-items: center;
 }
 

@@ -12,6 +12,12 @@ html{
   font-family: "Poppins", sans-serif;
 }
 
+section{
+  scroll-snap-align: start;
+  min-height: 100dvh;
+
+}
+
 
 .load-wraper{
   position: relative;
@@ -57,6 +63,12 @@ html{
   background-image: -webkit-linear-gradient(to left, rgba(251,251,251, .05), rgba(251,251,251, .3), rgba(251,251,251, .6), rgba(251,251,251, .3), rgba(251,251,251, .05));
   animation: loading 1s infinite;
   z-index: 45;
+}
+
+.body_inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 30px 20px;
 }
 
 @keyframes loading {

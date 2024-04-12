@@ -104,6 +104,79 @@ text-decoration: none;
  background: rgba(200, 210, 220, 0.3);
 }
 
+.search_bikes_by_container .title span{
+   /* color: #4e54c8; */
+}
+
+.search_bikes_by_container .btn_container{
+   display: flex;
+   gap: 10px;
+   margin-top: 20px;
+}
+
+.search_bikes_by_container .btn_container button{
+  box-shadow: 0px 0px 7px 0px #4e54c82f;
+
+ font-weight: 600;
+  height: 40px;
+  width: 200px;
+  /* border-radius: 5px; */
+  cursor: pointer;
+  border: none;
+  border-bottom: 3px solid #4e54c8;
+  background: none;  /* fallback for old browsers */
+}
+
+.search_bikes_by_container .btn_container button.active{
+  box-shadow: 0px 0px 7px 0px #4e54c82f;
+ font-weight: 600;
+  height: 40px;
+  width: 200px;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  background: #4e54c8;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #8f94fb, #4e54c8);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #8f94fb, #4e54c8);  /* Chrome 10-25, Safari 5.1-6 */
+}
+
+.search_bikes_by_container .brand_container{
+  border-radius: 5px;
+    box-shadow: 0px 0px 7px 0px #4e54c82f;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px;
+    background: #e1e1e175;
+}
+
+.search_bikes_by_container .brand_container .brand_card{
+  cursor: pointer;
+  box-shadow: 0px 0px 7px 0px #4e54c82f;
+  width: 19%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid #d5dadf; */
+  border-radius: 5px;
+  gap: 5px;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+
+.search_bikes_by_container .brand_container .brand_card img{
+  width: 60%;
+}
+
+.search_bikes_by_container .brand_container .brand_card p{
+   font-weight: 600;
+}
+
 
 @media (max-width: 576px) {
   .search_section{
@@ -113,6 +186,13 @@ text-decoration: none;
   .search_section .search_container{
     width: 97%;
     left: auto;
+  }
+  .search_bikes_by_container .brand_container{
+      padding: 10px;
+  }
+
+  .search_bikes_by_container .brand_container .brand_card{
+    width: 49%;
   }
 
 }
