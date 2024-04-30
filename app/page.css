@@ -1,8 +1,9 @@
 .search_section{
   height: 100dvh;
-  background: url('./../public/search_bg.jpg');
+  background: url('./../public/bg2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: left;
   color: red;
   position: relative;
   font-size: 20px;
@@ -181,7 +182,7 @@ text-decoration: none;
 @media (max-width: 576px) {
   .search_section{
     justify-content: center;
-    background-position: right;
+    background-position: left;
   }
   .search_section .search_container{
     width: 97%;

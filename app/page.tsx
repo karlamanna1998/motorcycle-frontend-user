@@ -22,7 +22,7 @@ export default function Home() {
   const [search, setSearch] = useState<string>("")
   const [searchResult, setSearchResult] = useState<Motorcycle[]>([])
   const [debounceTimer, setDebounceTimer] = useState<NodeJS.Timeout | null>(null);
-  const [renderNavbarOne, setrenderNavbarOne] = useState(true)
+  const [renderNavbarOne, setrenderNavbarOne] = useState(false);
 
 
 
@@ -49,21 +49,21 @@ export default function Home() {
     setDebounceTimer(timer)
   }
 
-  useEffect(() => {
-    document.addEventListener('scroll', () => {
+  // useEffect(() => {
+  //   document.addEventListener('scroll', () => {
 
-      if (window.scrollY + 70 >= window.innerHeight) {
-        setrenderNavbarOne(false)
-      } else {
-        setrenderNavbarOne(true)
-      }
-      console.log(window.scrollY,)
-    })
+  //     if (window.scrollY + 70 >= window.innerHeight) {
+  //       setrenderNavbarOne(false)
+  //     } else {
+  //       setrenderNavbarOne(true)
+  //     }
+  //     console.log(window.scrollY,)
+  //   })
 
-    return (
-      document.removeEventListener('scroll', () => { })
-    )
-  }, [])
+  //   return (
+  //     document.removeEventListener('scroll', () => { })
+  //   )
+  // }, [])
 
   useEffect(()=>{
     (async ()=>{
