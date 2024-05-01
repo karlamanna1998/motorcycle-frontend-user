@@ -86,3 +86,42 @@ section{
     height: 300px;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* styles.css */
+
+.tab-content {
+  display: none;
+}
+
+.tab-content:target {
+  display: block;
+}
+
+.tabs-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tabs-nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+.tabs-nav ul li a {
+  text-decoration: none;
+}

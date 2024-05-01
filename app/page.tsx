@@ -18,7 +18,7 @@ type Brand = {
   _id : string;
 };
 
-export default function Home() {
+export default async function Home() {
   const [search, setSearch] = useState<string>("")
   const [searchResult, setSearchResult] = useState<Motorcycle[]>([])
   const [debounceTimer, setDebounceTimer] = useState<NodeJS.Timeout | null>(null);
@@ -27,7 +27,10 @@ export default function Home() {
 
 
   const [selectedSearchMethod , setselectedSearchMethod] = useState('brand')
-  const [brandList , setBrandList] = useState<Brand[]>([])
+  // const [brandList , setBrandList] = useState<Brand[]>([])
+
+  let data = await axios.get(`${process.env.NEXT_PUBLIC_BASEURL}api/v1/user/brand/get-all-brand`);
+  let brandList = data.data.data
 
   const seachHandler = async (event: any) => {
     const searchTerm = event.target.value;
@@ -65,16 +68,16 @@ export default function Home() {
   //   )
   // }, [])
 
-  useEffect(()=>{
-    (async ()=>{
-     try{
-      let data = await axios.get(`${process.env.NEXT_PUBLIC_BASEURL}api/v1/user/brand/get-all-brand`)
-      setBrandList(data.data.data)
-     }catch(e){
-       console.log(e);
-     }
-    })()
-  } , [])
+  // useEffect(()=>{
+  //   (async ()=>{
+  //    try{
+  //     let data = await axios.get(`${process.env.NEXT_PUBLIC_BASEURL}api/v1/user/brand/get-all-brand`)
+  //     setBrandList(data.data.data)
+  //    }catch(e){
+  //      console.log(e);
+  //    }
+  //   })()
+  // } , [])
 
 
   return (
@@ -121,7 +124,7 @@ export default function Home() {
 
               <div  className='brand_container'>
                {
-                brandList && brandList.map((brand , i)=>{
+                brandList && brandList.map((brand : Brand , i : number)=>{
                   return (<div className="brand_card">
                      <img  src={'https://d22modxfw04m0o.cloudfront.net/' + brand.logo_url} />
                     {/* <button>{brand.brand_name}</button> */}
