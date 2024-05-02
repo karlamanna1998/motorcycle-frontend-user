@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from "react";
 import "./navbarTwo.css"
 import axios from "axios";
