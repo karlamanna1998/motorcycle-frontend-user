@@ -13,6 +13,7 @@ import { useParams } from 'next/navigation.js';
 import { features, specifications } from "../../service/common"
 import axios from 'axios';
 import AddIcon from '@mui/icons-material/Add';
+import '../../services/axios'
 
 interface Motorcycle {
     motorcycle_name: string;
@@ -41,9 +42,10 @@ export default function Motorcycle() {
     const getMotorcycleData = async (variantData : variant) => {
         try {
             let data = await axios.get(`${process.env.NEXT_PUBLIC_BASEURL}api/v1/user/motorcycle/getById?motorcycleID=${params.slug}&variantId=${variantData?._id}`)
-            setMotorcycleData(data.data.data)
-            setimages(data.data.data.images)
-            console.log(data.data.data);
+            console.log(data.data)
+            setMotorcycleData(data.data)
+            setimages(data.data.images)
+            console.log(data.data);
             setInitialRender(true)
         } catch (err) {
             console.log(err);
@@ -55,9 +57,11 @@ export default function Motorcycle() {
 
         try {
             let data = await axios.get(`${process.env.NEXT_PUBLIC_BASEURL}api/v1/user/variant/variant-list/${params.slug}`)
-            setVariantList(data.data.data)
-            setVariant(data.data.data[0])
-            getMotorcycleData(data.data.data[0])
+            console.log(data.data);
+            
+            setVariantList(data.data)
+            setVariant(data.data[0])
+            getMotorcycleData(data.data[0])
         } catch (err) {
             console.log(err);
         }
@@ -106,8 +110,6 @@ export default function Motorcycle() {
 
     return (
         <>
-            <NavbarTwo />
-
             <div className='body_outer'>
                 {variantDropdown && <div onClick={() => setvariantDropdown(false)} className='variant_droodwon_backdrop'></div>}
                 <div className='body_inner'>

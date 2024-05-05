@@ -1,0 +1,77 @@
+.moto_card_container {
+    display: flex;
+    gap: 10px;
+    font-size: 20px;
+    flex-wrap: wrap;
+}
+
+.moto_card_container .moto_card {
+    width: 270px;
+    border: 1px solid rgb(213 218 223);
+    border-radius: 5px;
+    padding: 5px;
+
+}
+
+.moto_card_container .moto_card .info_container {
+    padding: 10px;
+}
+
+.moto_card_container .moto_card .image_wrapper img {
+    width: 100%;
+
+}
+
+.moto_card_container .moto_card .info_container .moto_Name {
+    font-size: 0.9em;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-style: italic;
+}
+
+
+
+
+.moto_card_container .moto_card .info_container .moto_price {
+    font-family: "Lato", sans-serif;
+    font-size: 0.8em;
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+
+.moto_card_container .moto_card .info_container .style_spacer {
+    height: 4px;
+    background: linear-gradient(to right, #8f94fb, #4e54c8);
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.moto_card_container .moto_card .info_container .view_details_btn {
+    background: #4e54c8;
+    color: #fff;
+    border: none;
+    padding: 0.5em;
+    font-size: 0.7em;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-style: italic;
+
+}
+
+.moto_card_container .moto_card .info_container .spec_text {
+    font-family: "Lato", sans-serif;
+    font-size: 0.7em;
+    color: rgb(156, 156, 156);
+}
+
+
+@media (max-width : 576px) {
+
+    .moto_card_container .moto_card {
+        width: 100%
+    }
+
+
+}

@@ -10,11 +10,11 @@ export default async function Home() {
 
 
   let data = await axios.get(`${process.env.NEXT_PUBLIC_BASEURL}api/v1/user/brand/get-all-brand`);
-  let brandList = data.data.data
+  let brandList = data.data
+  console.log(data)
 
   return (
     <>
-      <NavbarTwo />
       <section id="firstSection">
         <div className="search_section">
           <HomeSearch />
