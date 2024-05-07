@@ -15,6 +15,7 @@ export default async function SearchMotorcycle({ searchParams: { brand = '', sor
     const payload = {
         brand,
         brake,
+        sort,
         displacement: displacement ? {
             min: Number(displacement.split(',')[0]),
             max: Number(displacement.split(',')[1])
@@ -33,7 +34,7 @@ export default async function SearchMotorcycle({ searchParams: { brand = '', sor
             <FilterSort/>
             <div className="moto_card_container">
             {
-                motorcycles.map((item : any)=>{
+              motorcycles &&  motorcycles.map((item : any)=>{
                    return <>
                    <a>
                     <div className="moto_card">
