@@ -1,5 +1,6 @@
 import axios from "axios";
 import './single-motorcycle.css'
+import FilterSort from "../components/search-motorcycles/filterSort/filterSort";
 
 export default async function SearchMotorcycle({ searchParams: { brand = '', sort = '', budget = '', displacement = '', brake = '' } }: {
     searchParams: {
@@ -29,6 +30,7 @@ export default async function SearchMotorcycle({ searchParams: { brand = '', sor
     return (
         <div className='body_outer'>
         <div className='body_inner'>
+            <FilterSort/>
             <div className="moto_card_container">
             {
                 motorcycles.map((item : any)=>{

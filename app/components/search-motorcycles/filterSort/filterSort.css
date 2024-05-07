@@ -1,0 +1,79 @@
+.filterSort_container{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.sort_wrapper{
+    position: relative;
+}
+
+.sort_dropdown{
+    position: absolute;
+    right: 0;
+    background: #fff;
+    border: 1px solid rgb(213 218 223);
+    top: 120%;
+    border-radius: 4px;
+}
+
+.sort_dropdown ul{
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    padding: 10px;
+    width: 250px;
+}
+
+.sort_dropdown ul li{
+    width: 100%;
+    border: 1px solid rgb(213 218 223);
+    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.sort_dropdown ul li a{
+   text-decoration: none;
+   color: #000;
+}
+
+.sort_dropdown ul li.active{
+    background: #4e54c8;
+    border: none;
+    color: #fff;
+}
+
+.sort_dropdown ul li.active a{
+    color: #fff;
+}
+
+.sort_dropdown ul li:last-child{
+    margin-bottom: 0;
+}
+
+.sort_wrapper .Sort_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    width: 100px;
+    border: 1px solid rgb(213 218 223);
+    height: 35px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.sort_wrapper .Sort_btn:hover{
+    background: rgb(240, 240, 240);
+}
+.sort_wrapper .Sort_btn img{
+    width: 18px;
+    margin-bottom: 2px;
+}

@@ -54,10 +54,9 @@
     border: none;
     padding: 0.5em;
     font-size: 0.7em;
-    border-radius: 5px;
+    border-radius: 4px;
     margin-top: 5px;
     font-style: italic;
-
 }
 
 .moto_card_container .moto_card .info_container .spec_text {
